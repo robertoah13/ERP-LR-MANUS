@@ -1,6 +1,5 @@
 import os
 import sys
-# DON'T CHANGE THIS !!!
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 from flask import Flask, send_from_directory, jsonify
@@ -16,6 +15,9 @@ from src.models.cliente import Cliente
 # Importar rotas básicas
 from src.routes.user import user_bp
 from src.routes.cliente import cliente_bp
+from src.routes.dashboard import dashboard_bp
+from src.routes.estoque import estoque_bp
+from src.routes.producao import producao_bp
 
 app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), 'static'))
 app.config['SECRET_KEY'] = 'lr-protese-erp-secret-key-2024'
@@ -26,42 +28,15 @@ CORS(app, origins=['http://localhost:3000', 'http://localhost:5173', 'http://loc
 # Registrar blueprints básicos
 app.register_blueprint(user_bp, url_prefix='/api')
 app.register_blueprint(cliente_bp, url_prefix='/api')
+app.register_blueprint(dashboard_bp, url_prefix='/api')
+app.register_blueprint(estoque_bp, url_prefix='/api')
+app.register_blueprint(producao_bp, url_prefix='/api')
 
 # Configurar banco de dados
 app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(os.path.dirname(__file__), 'database', 'app.db')}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
-# Rota básica para dashboard
-@app.route('/api/dashboard/resumo', methods=['GET'])
-def dashboard_resumo():
-    try:
-        total_clientes = Cliente.query.filter_by(ativo=True).count()
-        
-        return jsonify({
-            'success': True,
-            'data': {
-                'clientes': {'total': total_clientes},
-                'pacientes': {'total': 0},
-                'ordens_servico': {
-                    'total': 0,
-                    'recebidas': 0,
-                    'em_producao': 0,
-                    'finalizadas': 0,
-                    'entregues': 0,
-                    'atrasadas': 0
-                },
-                'financeiro': {
-                    'total_a_receber': 0,
-                    'total_a_pagar': 0,
-                    'faturamento_mes': 0
-                },
-                'estoque': {'materiais_criticos': 0},
-                'agenda': {'eventos_hoje': 0}
-            }
-        })
-    except Exception as e:
-        return jsonify({'success': False, 'message': str(e)}), 500
 
 with app.app_context():
     db.create_all()

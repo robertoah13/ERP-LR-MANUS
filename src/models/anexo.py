@@ -1,7 +1,7 @@
-from flask_sqlalchemy import SQLAlchemy
+from src.database import db
 from datetime import datetime
 
-db = SQLAlchemy()
+
 
 class AnexoOS(db.Model):
     __tablename__ = 'anexos_os'

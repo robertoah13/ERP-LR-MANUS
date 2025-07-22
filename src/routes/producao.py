@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from src.models.user import db
+from src.database import db
 from src.models.etapa_producao import EtapaProducao
 from src.models.ordem_servico import OrdemServico
 from src.models.user import User
