@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from src.models.user import db
+from src.database import db
 from src.models.material import Material
 from src.models.movimentacao_estoque import MovimentacaoEstoque
 from datetime import datetime
