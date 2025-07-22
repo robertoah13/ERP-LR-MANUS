@@ -1,0 +1,23 @@
+instâncias se necessário, uso eficiente de consultas ao banco (ORM ou queries otimizadas) e estrutura de
+dados escalável para acomodar anos de informações.
+Por fim, priorizaremos a qualidade da experiência do usuário e a confiabilidade. Todas as funcionalidades
+descritas (Cadastro, OS, Produção, Financeiro, Estoque, Agenda, Relatórios) estarão integradas, evitando
+retrabalho e garantindo que uma informação inserida em um módulo reflita nos demais. Este ERP web dará
+ao laboratório uma visão unificada do seu negócio, nos moldes do LabFácil (que provou ser uma solução
+eficiente na área) 18 , porém adaptado às necessidades específicas do LR Prótese Dental e com a
+flexibilidade de um software de código aberto.
+Referências Utilizadas: As funcionalidades foram concebidas com base nas melhores práticas de sistemas
+para laboratórios de prótese dentária, incluindo referências do sistema LabFácil da Urgtec e de plataformas
+similares do mercado, como onPrótese. Estas fontes destacam a importância de fluxos de trabalho bem
+definidos, controle de estoque rigoroso e comunicação eficiente na gestão laboratorial 3 9 4 . O
+objetivo é entregar um projeto consistente, de fácil manutenção e expansão, pronto para ser hospedado no
+GitHub com documentação completa para implantação. Cada módulo e detalhe técnico foi pensado
+visando facilitar o dia a dia do laboratório e promover ganhos de produtividade e qualidade.
+1 3 5 6 9 10 18 Como gerenciar um Laboratório de Protese com Eficiência
+https://pt.linkedin.com/pulse/como-gerenciar-um-laborat%C3%B3rio-de-protese-com-efici%C3%AAncia-urgtec
+2 4 7 8 11 12 14 15 onPrótese - Software para Laboratórios de Prótese Dentária
+https://www.onprotese.com.br/
+13 16 17 GitHub - idurar/idurar-erp-crm: Free Open Source ERP CRM Accounting Invoicing Software |
+Node Js React
+https://github.com/idurar/idurar-erp-crm
+7
